@@ -292,7 +292,6 @@
           this.showMain = false;
       },
       openEasyGame(){
-          this.flags = 3;
           this.width = 8;
           this.height = 8;
           this.mines = 12;
@@ -357,10 +356,9 @@
   
       },
       restartGameEasy(){
-          this.flags = 3;
           this.width = 8;
           this.height = 8;
-          this.mines = 3;
+          this.mines = 12;
           this.minutes = 10;
           this.seconds = 0;
         this.resetGame();
@@ -368,7 +366,7 @@
         this.startTimer();
       },
       restartGameNormal(){
-        this.width = 16;
+          this.width = 16;
           this.height = 16;
           this.mines = 40;
           this.minutes = 40;
@@ -380,7 +378,7 @@
         this.startTimer();
       },
       restartGameHard(){
-        this.width = 32;
+          this.width = 32;
           this.height = 16;
           this.mines = 60;
           this.minutes = 100;
@@ -435,7 +433,10 @@
     
       saveResult() {
          const result = {
-         score: this.seconds,
+         score: [
+         this.minutes,
+         this.seconds,
+         ]
       };
       this.$store.dispatch("saveResult", result);
     },
