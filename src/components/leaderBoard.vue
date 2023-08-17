@@ -12,6 +12,7 @@
         </tr>
       </tbody>
     </table>
+    <router-link to="/" class="complexity__back">Back</router-link>
   </div>
 </template>
 

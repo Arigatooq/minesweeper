@@ -358,6 +358,7 @@
           this.minutes = 10;
           this.seconds = 0;
         this.resetGame();
+        this.stopTimer();
         this.startTimer();
       },
       restartGameNormal(){
