@@ -173,6 +173,7 @@
                         class="cell"
                         @mousedown.left="clickCell(cell)"
                         @mousedown.right="setFlag(cell)"
+                        @mousedown.middle="setQuastion(cell)"
                         @contextmenu.prevent
                         :style="{width: (100/width) + '%'}"
                         :class="cellClass(cell, cell.count)"
@@ -501,18 +502,17 @@
       },
       setCellFlag(cell, flag){
      
-          if(flag !== cell.flag && this.flag_count != this.flags){
-               cell.flag = flag;
+          if(flag !== cell.flag){
+               cell.flag = flag;  
                this.flag_count += flag ? 1 : -1;
                this.mines += flag ? -1 : 1;
-          } if (flag){
-            this.flag_count += flag ? -1: 0
           }
-            
+        },
           
-          
-          
-      },
+      setQuastion(cell, quasiton){
+            cell.quasiton = quasiton
+            quasiton ? 1 : -1
+          },
       openCell(cell){
           if (cell && !cell.is_open){
               this.setCellOpen(cell);
@@ -558,7 +558,7 @@
        cellClass(cell){
               return cell.is_open 
              ? ([cell.is_mine ? "mine" : "digit-" + cell.val ])
-             : ["closed", cell.flag ? "flag" : "" ];
+             : ["closed", cell.flag ? "flag" : "quasiton" ];
       },
         startTimer(){
           if (this.state === "play"){
@@ -819,7 +819,9 @@
     display: flex;
     align-items: center;
     }
- 
+    .quasiton{
+      background-color: blueviolet;
+    }
   
     .button{
     position: relative;
