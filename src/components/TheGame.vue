@@ -169,7 +169,7 @@
                           <p class="minesCounter">Mines: {{ mines }}</p>
                           <div class="buttons_custom">
                               <button class="apply" @click="applyOptions">Apply</button>
-                              <button class="button" @click="restartGame">Restart</button>
+                              <button class="button" @click="resetGame">Restart</button>
                           </div>
                           
                       </div>
