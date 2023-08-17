@@ -28,12 +28,14 @@
           <div class="container" >
               <div class="navbar">
                   <div class="counter"></div>
-                  <div class="title">Test task -  sapper</div>
+                  <div class="title">Test task -  minesweeper</div>
                   <div class="buttons">
                       <button class="button" @click="restartGameEasy">Restart</button>
                       <div class="timer">
-                           <p class="minesCounter">Mines: {{ mines }}</p>
-                           {{minutes}}:{{seconds}}
+                        <p class="minesCounter">Mines: {{ mines }}</p>
+                           {{minutes}}:
+                           <div v-if="this.seconds >= 10">{{seconds}}</div>
+                           <div v-else> 0{{ seconds }}</div>
                       </div>
                   </div>
               </div>
@@ -68,12 +70,15 @@
           <div class="container" >
               <div class="navbar">
                   <div class="counter"></div>
-                  <div class="title">Test task -  sapper</div>
+                  <div class="title">Test task -  minesweeper</div>
                   <div class="buttons">
                       <button class="button" @click="restartGameNormal">Restart</button>
                       <div class="timer">
                         <p class="minesCounter">Mines: {{ mines }}</p>
-                           {{minutes}}:{{seconds}}
+                           {{minutes}}:
+                           <div v-if="this.seconds >= 10">{{seconds}}</div>
+                           <div v-else> 0{{ seconds }}</div>
+                          
                       </div>
                   </div>
               </div>
@@ -108,12 +113,14 @@
           <div class="container" >
               <div class="navbar">
                   <div class="counter"></div>
-                  <div class="title">Test task -  sapper</div>
+                  <div class="title">Test task -  minesweeper</div>
                   <div class="buttons">
                       <button class="button" @click="restartGameHard">Restart</button>
                       <div class="timer">
                         <p class="minesCounter">Mines: {{ mines }}</p>
-                           {{minutes}}:{{seconds}}
+                           {{minutes}}:
+                           <div v-if="this.seconds >= 10">{{seconds}}</div>
+                           <div v-else> 0{{ seconds }}</div>
                       </div>
                   </div>
               </div>
@@ -197,6 +204,7 @@
   </template>
   
   <script>
+  
   class Game{
       constructor(x ,y){
           this.x = x;
@@ -222,7 +230,6 @@
                   mines:  10,
               },
               state: "init",
-              // state: "lost",
               cells_opened: 0,
               flag_count: 0,
               flags: 0,
@@ -350,7 +357,6 @@
   
       },
       restartGameEasy(){
-        this.state = "init";
           this.flags = 3;
           this.width = 8;
           this.height = 8;
@@ -367,10 +373,10 @@
           this.mines = 40;
           this.minutes = 40;
           this.seconds = 0;
-          this.resetGame();
           this.showNormalGame = true;
           this.showChooseCom = false;
         this.resetGame();
+        this.stopTimer();
         this.startTimer();
       },
       restartGameHard(){
@@ -379,10 +385,10 @@
           this.mines = 60;
           this.minutes = 100;
           this.seconds = 0;
-          this.resetGame();
           this.showHardGame = true;
           this.showChooseCom = false;
         this.resetGame();
+        this.stopTimer();
         this.startTimer();
       },
     
@@ -473,8 +479,6 @@
       },
     
       clickCell(cell){
-        this.saveResult()
-        
           this.init(cell);
           if(this.state === "play" && !cell.is_open){
               if (cell.is_mine){
@@ -510,10 +514,7 @@
           }
         },
           
-      setQuastion(cell, quasiton){
-            cell.quasiton = quasiton
-            quasiton ? 1 : -1
-          },
+     
       openCell(cell){
           if (cell && !cell.is_open){
               this.setCellOpen(cell);
@@ -559,7 +560,7 @@
        cellClass(cell){
               return cell.is_open 
              ? ([cell.is_mine ? "mine" : "digit-" + cell.val ])
-             : ["closed", cell.flag ? "flag" : "quasiton" ];
+             : ["closed", cell.flag ? "flag" : "" ];
       },
         startTimer(){
           if (this.state === "play"){
@@ -591,11 +592,17 @@
       margin: 0;
       padding: 0;
   }
-  @media (max-width: 500px)  {
+  @media (max-width: 500px) {
     .buttons_custom{
       position: absolute;
       margin-top: 23px;
       margin-left: 130px;
+    }
+
+    @media (max-width: 1920px) and (min-width: 1920px){
+      .square{
+        height: 300px;
+      }
     }
    
   }

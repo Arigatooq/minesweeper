@@ -3,7 +3,7 @@
                  <div class="container">
                      <div class="menu__choose">
                          <div class="menu__buttons">
-                           <router-link to="/game" class="menu__play">Options game</router-link>
+                           <router-link to="/game" class="menu__play">Game options</router-link>
                            <router-link to="/leaderboard" class="menu__leader_board">Leader board</router-link>
                      </div>
                  </div>
