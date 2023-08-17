@@ -259,8 +259,6 @@
       created(){
           this.applyOptions();
       },
-  
-      /////////////////////////////////////////////////////////////////
      methods: {
       updateParentData(newData) {
              this.showChooseCom = newData;
@@ -327,7 +325,6 @@
           this.showMain = true;
           this.showChooseCom = false;
       },
-      /////////////////////////////////////////////////////////////////
       applyOptions(){
           for(let opt in this.options)
               this[opt] = this.options[opt];

@@ -39,6 +39,3 @@ td {
 }
 </style>
 
-<!-- 
-<tr v-for="(result, index) in results" :key="index">
-  <td>{{ result.score }}</td> -->
