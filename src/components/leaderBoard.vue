@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table>
+    <table class="cont">
       <thead>
         <tr>
           <th>Score</th>
@@ -12,7 +12,7 @@
         </tr>
       </tbody>
     </table>
-    <router-link to="/" class="complexity__back">Back</router-link>
+    <router-link to="/" class="back_board">Back</router-link>
   </div>
 </template>
 
@@ -31,12 +31,32 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-
+.cont{
+  max-width: 1920px;
+  margin: 0 auto;
+}
 th,
 td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+}
+.back_board{
+  color: black;
+  margin-left: 1000px;
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  margin-top: 3%;
+  text-align: center;
+  font-size: 45px;
+  border: 1px solid gray;
+  width: 450px;
+}
+.back_board:visited{
+   color: black;
+   text-decoration: none;
 }
 </style>
 

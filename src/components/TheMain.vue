@@ -87,6 +87,7 @@
        font-size: 45px;
        border: 1px solid gray;
        width: 450px;
+       color: black;
    
      }
      .menu__leader_board{
@@ -97,5 +98,6 @@
        font-size: 45px;
        border: 1px solid gray;
        width: 450px;
+       color: black;
      }
  </style>

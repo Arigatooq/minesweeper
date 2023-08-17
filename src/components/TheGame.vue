@@ -295,7 +295,7 @@
           this.flags = 3;
           this.width = 8;
           this.height = 8;
-          this.mines = 3;
+          this.mines = 12;
           this.minutes = 10;
           this.seconds = 0;
           this.resetGame();
@@ -744,6 +744,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+      color: black;
       align-items:center;
     }
     .menu__play{
@@ -754,6 +755,7 @@
       font-size: 45px;
       border: 1px solid gray;
       width: 450px;
+      color: black;
   
     }
     .menu__leader{
@@ -763,6 +765,7 @@
       text-align: center;
       font-size: 45px;
       border: 1px solid gray;
+      color: black;
       width: 450px;
     }
     .complexity__choose{
@@ -884,6 +887,9 @@
     border-radius: 7px;
     margin-right: 15px;
     font-size: 15px;
+   }
+   button{
+    color: black;
    }
   </style>
   
